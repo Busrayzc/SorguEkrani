@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SorguEkranDbModelStoreContainer" CdmEntityContainer="SorguEkranDbEntities">
+    <EntitySetMapping Name="TblHesap">
+      <EntityTypeMapping TypeName="SorguEkranDbModel.TblHesap">
+        <MappingFragment StoreEntitySet="TblHesap">
+          <ScalarProperty Name="Iban" ColumnName="Iban" />
+          <ScalarProperty Name="Alacaklı_Tutar" ColumnName="Alacaklı Tutar" />
+          <ScalarProperty Name="Borçlu_Tutar" ColumnName="Borçlu Tutar" />
+          <ScalarProperty Name="Döviz_Kodu" ColumnName="Döviz Kodu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblOdeme">
+      <EntityTypeMapping TypeName="SorguEkranDbModel.TblOdeme">
+        <MappingFragment StoreEntitySet="TblOdeme">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TCKN" ColumnName="TCKN" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+          <ScalarProperty Name="Tutar" ColumnName="Tutar" />
+          <ScalarProperty Name="Başlangıç_Tarihi" ColumnName="Başlangıç Tarihi" />
+          <ScalarProperty Name="Bitiş_Tarihi" ColumnName="Bitiş Tarihi" />
+          <ScalarProperty Name="Döviz_Kodu" ColumnName="Döviz Kodu" />
+          <ScalarProperty Name="Ödeme_Tarihi" ColumnName="Ödeme Tarihi" />
+          <ScalarProperty Name="Durum_Kodu" ColumnName="Durum Kodu" />
+          <ScalarProperty Name="Alacaklı_Iban" ColumnName="Alacaklı Iban" />
+          <ScalarProperty Name="Borçlu_İban" ColumnName="Borçlu İban" />
+          <ScalarProperty Name="Açıklama" ColumnName="Açıklama" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

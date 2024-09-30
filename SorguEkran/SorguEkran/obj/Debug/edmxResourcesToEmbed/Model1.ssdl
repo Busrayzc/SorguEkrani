@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SorguEkranDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TblHesap">
+    <Key>
+      <PropertyRef Name="Iban" />
+    </Key>
+    <Property Name="Iban" Type="varchar" MaxLength="26" Nullable="false" />
+    <Property Name="Alacaklı Tutar" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Borçlu Tutar" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Döviz Kodu" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="TblOdeme">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TCKN" Type="varchar" MaxLength="11" />
+    <Property Name="Ad" Type="varchar" MaxLength="50" />
+    <Property Name="Soyad" Type="varchar" MaxLength="50" />
+    <Property Name="Tutar" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Başlangıç Tarihi" Type="datetime" />
+    <Property Name="Bitiş Tarihi" Type="datetime" />
+    <Property Name="Döviz Kodu" Type="varchar" MaxLength="3" />
+    <Property Name="Ödeme Tarihi" Type="datetime" />
+    <Property Name="Durum Kodu" Type="varchar" MaxLength="3" />
+    <Property Name="Alacaklı Iban" Type="varchar" MaxLength="26" Nullable="false" />
+    <Property Name="Borçlu İban" Type="varchar" MaxLength="26" Nullable="false" />
+    <Property Name="Açıklama" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_TblOdeme_TblHesap">
+    <End Role="TblHesap" Type="Self.TblHesap" Multiplicity="1" />
+    <End Role="TblOdeme" Type="Self.TblOdeme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblHesap">
+        <PropertyRef Name="Iban" />
+      </Principal>
+      <Dependent Role="TblOdeme">
+        <PropertyRef Name="Alacaklı Iban" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblOdeme_TblHesap1">
+    <End Role="TblHesap" Type="Self.TblHesap" Multiplicity="1" />
+    <End Role="TblOdeme" Type="Self.TblOdeme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblHesap">
+        <PropertyRef Name="Iban" />
+      </Principal>
+      <Dependent Role="TblOdeme">
+        <PropertyRef Name="Borçlu İban" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SorguEkranDbModelStoreContainer">
+    <EntitySet Name="TblHesap" EntityType="Self.TblHesap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblOdeme" EntityType="Self.TblOdeme" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TblOdeme_TblHesap" Association="Self.FK_TblOdeme_TblHesap">
+      <End Role="TblHesap" EntitySet="TblHesap" />
+      <End Role="TblOdeme" EntitySet="TblOdeme" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblOdeme_TblHesap1" Association="Self.FK_TblOdeme_TblHesap1">
+      <End Role="TblHesap" EntitySet="TblHesap" />
+      <End Role="TblOdeme" EntitySet="TblOdeme" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,15 @@
+C:\Users\Busra\source\repos\SorguEkran\SorguEkran\bin\Debug\SorguEkran.exe.config
+C:\Users\Busra\source\repos\SorguEkran\SorguEkran\bin\Debug\SorguEkran.exe
+C:\Users\Busra\source\repos\SorguEkran\SorguEkran\bin\Debug\SorguEkran.pdb
+C:\Users\Busra\source\repos\SorguEkran\SorguEkran\bin\Debug\EntityFramework.dll
+C:\Users\Busra\source\repos\SorguEkran\SorguEkran\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Busra\source\repos\SorguEkran\SorguEkran\bin\Debug\EntityFramework.xml
+C:\Users\Busra\source\repos\SorguEkran\SorguEkran\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Busra\source\repos\SorguEkran\SorguEkran\obj\Debug\SorguEkran.csproj.AssemblyReference.cache
+C:\Users\Busra\source\repos\SorguEkran\SorguEkran\obj\Debug\SorguEkran.Form1.resources
+C:\Users\Busra\source\repos\SorguEkran\SorguEkran\obj\Debug\SorguEkran.Properties.Resources.resources
+C:\Users\Busra\source\repos\SorguEkran\SorguEkran\obj\Debug\SorguEkran.csproj.GenerateResource.cache
+C:\Users\Busra\source\repos\SorguEkran\SorguEkran\obj\Debug\SorguEkran.csproj.CoreCompileInputs.cache
+C:\Users\Busra\source\repos\SorguEkran\SorguEkran\obj\Debug\SorguEkran.csproj.Up2Date
+C:\Users\Busra\source\repos\SorguEkran\SorguEkran\obj\Debug\SorguEkran.exe
+C:\Users\Busra\source\repos\SorguEkran\SorguEkran\obj\Debug\SorguEkran.pdb

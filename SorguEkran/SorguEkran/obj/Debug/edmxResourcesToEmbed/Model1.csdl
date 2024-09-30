@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SorguEkranDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TblHesap">
+    <Key>
+      <PropertyRef Name="Iban" />
+    </Key>
+    <Property Name="Iban" Type="String" MaxLength="26" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Alacaklı_Tutar" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Borçlu_Tutar" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Döviz_Kodu" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TblOdeme" Relationship="Self.FK_TblOdeme_TblHesap" FromRole="TblHesap" ToRole="TblOdeme" />
+    <NavigationProperty Name="TblOdeme1" Relationship="Self.FK_TblOdeme_TblHesap1" FromRole="TblHesap" ToRole="TblOdeme" />
+  </EntityType>
+  <EntityType Name="TblOdeme">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TCKN" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tutar" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Başlangıç_Tarihi" Type="DateTime" Precision="3" />
+    <Property Name="Bitiş_Tarihi" Type="DateTime" Precision="3" />
+    <Property Name="Döviz_Kodu" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="Ödeme_Tarihi" Type="DateTime" Precision="3" />
+    <Property Name="Durum_Kodu" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="Alacaklı_Iban" Type="String" MaxLength="26" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Borçlu_İban" Type="String" MaxLength="26" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Açıklama" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TblHesap" Relationship="Self.FK_TblOdeme_TblHesap" FromRole="TblOdeme" ToRole="TblHesap" />
+    <NavigationProperty Name="TblHesap1" Relationship="Self.FK_TblOdeme_TblHesap1" FromRole="TblOdeme" ToRole="TblHesap" />
+  </EntityType>
+  <Association Name="FK_TblOdeme_TblHesap">
+    <End Role="TblHesap" Type="Self.TblHesap" Multiplicity="1" />
+    <End Role="TblOdeme" Type="Self.TblOdeme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblHesap">
+        <PropertyRef Name="Iban" />
+      </Principal>
+      <Dependent Role="TblOdeme">
+        <PropertyRef Name="Alacaklı_Iban" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblOdeme_TblHesap1">
+    <End Role="TblHesap" Type="Self.TblHesap" Multiplicity="1" />
+    <End Role="TblOdeme" Type="Self.TblOdeme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblHesap">
+        <PropertyRef Name="Iban" />
+      </Principal>
+      <Dependent Role="TblOdeme">
+        <PropertyRef Name="Borçlu_İban" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SorguEkranDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TblHesap" EntityType="Self.TblHesap" />
+    <EntitySet Name="TblOdeme" EntityType="Self.TblOdeme" />
+    <AssociationSet Name="FK_TblOdeme_TblHesap" Association="Self.FK_TblOdeme_TblHesap">
+      <End Role="TblHesap" EntitySet="TblHesap" />
+      <End Role="TblOdeme" EntitySet="TblOdeme" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblOdeme_TblHesap1" Association="Self.FK_TblOdeme_TblHesap1">
+      <End Role="TblHesap" EntitySet="TblHesap" />
+      <End Role="TblOdeme" EntitySet="TblOdeme" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
